@@ -1,0 +1,40 @@
+{
+  "sheet": "player.png",
+  "frame_w": 312,
+  "frame_h": 442,
+  "fps": 8,
+  "rows": {
+    "down": 0,
+    "side": 1,
+    "up": 2
+  },
+  "states": {
+    "idle": [
+      0
+    ],
+    "walk": [
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  "dir": {
+    "down": [
+      "down",
+      false
+    ],
+    "up": [
+      "up",
+      false
+    ],
+    "left": [
+      "side",
+      false
+    ],
+    "right": [
+      "side",
+      true
+    ]
+  }
+}

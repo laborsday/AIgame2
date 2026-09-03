@@ -1,0 +1,88 @@
+{
+  "rbc": {
+    "name": "红细胞",
+    "desc": "恢复 10 点生命值",
+    "icon": "rbc_48.png",
+    "kind": "consumable",
+    "effect": {"type": "heal", "amount": 10}
+  },
+  "vaccine": {
+    "name": "预防针",
+    "desc": "15 秒内白细胞攻击 ×1.3",
+    "icon": "vaccine_32.png",
+    "kind": "consumable",
+    "effect": {"type": "atk_buff", "duration": 15.0, "atk_mult": 1.3}
+  },
+  "pain": {
+    "name": "止痛药",
+    "desc": "10 秒内受到的伤害 −50%",
+    "icon": "drug_pain_32.png",
+    "kind": "consumable",
+    "effect": {"type": "dmg_reduce", "duration": 10.0, "dmg_mult": 0.5}
+  },
+  "money": {
+    "name": "医药费",
+    "desc": "获得 50 积分——爸妈的支援",
+    "icon": "money_bills_48.png",
+    "kind": "consumable",
+    "effect": {"type": "score", "amount": 50}
+  },
+  "soup": {
+    "name": "妈妈的炖汤",
+    "desc": "立即 +20 HP，暖心 8 秒每秒 +2",
+    "icon": "soup_pot_48.png",
+    "kind": "consumable",
+    "effect": {"type": "heal_regen", "amount": 20, "regen_duration": 8.0, "regen_per_sec": 2}
+  },
+  "sweater": {
+    "name": "奶奶的针织衣",
+    "desc": "直接攻击伤害 −6；每次被击中耗 1 耐久",
+    "icon": "sweater_48.png",
+    "kind": "equip",
+    "slot": "armor",
+    "armor": 6,
+    "durability": 12
+  },
+  "scalpel": {
+    "name": "手术刀",
+    "desc": "3 把刀环绕主角，接触 4 伤；耐久 36 次命中",
+    "icon": "scalpel_48.png",
+    "kind": "equip",
+    "slot": "weapon",
+    "blades": 3,
+    "damage": 4,
+    "orbit_radius": 70,
+    "orbit_speed": 2.4,
+    "hit_cooldown": 0.5,
+    "durability": 36
+  },
+  "key_left": {
+    "name": "左半钥匙",
+    "desc": "一把有缺口的银钥匙，齿的一侧被齐齐切掉。",
+    "icon": "key_left_48.png",
+    "kind": "key",
+    "key_half": "left"
+  },
+  "key_right": {
+    "name": "右半钥匙",
+    "desc": "战场的废墟里捡到的另一半，齿痕严丝合缝。",
+    "icon": "key_right_48.png",
+    "kind": "key",
+    "key_half": "right"
+  },
+  "key_full": {
+    "name": "完整的钥匙",
+    "desc": "两半严丝合缝——它能打开档案室的另一半。",
+    "icon": "key_full_48.png",
+    "kind": "key",
+    "key_full": true
+  },
+  "firefly": {
+    "name": "萤火虫",
+    "desc": "使用后点击地面，把它放去照亮一片区域——它不会熄灭。",
+    "icon": "firefly_48.png",
+    "kind": "consumable",
+    "stack_max": 3,
+    "effect": {"type": "firefly_place"}
+  }
+}

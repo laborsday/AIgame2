@@ -1,0 +1,11 @@
+{
+  "achievements": [
+    {
+      "aid": "reliquary",
+      "name": "战友的徽章",
+      "desc": "通关 3 次完美结局（残留 < 0.1%）",
+      "effect": "每局免疫第 1 次致命伤",
+      "unlock_hint": "残留 < 0.1% 的通关累计 3 次"
+    }
+  ]
+}

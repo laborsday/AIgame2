@@ -1,0 +1,81 @@
+/* 免疫防线 · 档案管理 —— 深底暖金（游戏主色调） */
+:root {
+  --bg: #0c0a08;
+  --panel: #121009;
+  --gold: #c9a227;
+  --gold-hi: #ffe9a0;
+  --text: #e8e4d8;
+  --dim: #9c9688;
+  --red: #d32a2a;
+  --green: #4ac458;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+  min-height: 100vh;
+}
+header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 18px 32px;
+  border-bottom: 2px solid var(--gold);
+}
+h1 { margin: 0; font-size: 24px; letter-spacing: 2px; }
+nav a {
+  color: var(--gold-hi);
+  text-decoration: none;
+  margin-left: 18px;
+  font-size: 14px;
+}
+nav a:hover { text-decoration: underline; }
+main { padding: 24px 32px; max-width: 1100px; margin: 0 auto; }
+h2 { color: var(--gold); font-size: 18px; border-left: 4px solid var(--gold); padding-left: 10px; }
+.cards { display: flex; gap: 16px; margin-bottom: 24px; flex-wrap: wrap; }
+.card {
+  background: var(--panel);
+  border: 1px solid var(--gold);
+  border-radius: 10px;
+  padding: 18px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 150px;
+}
+.card .num { font-size: 34px; color: var(--gold-hi); }
+.card .lbl { font-size: 13px; color: var(--dim); margin-top: 6px; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--panel);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+th, td { padding: 8px 14px; text-align: left; border-bottom: 1px solid #2a241c; }
+th { color: var(--gold); font-size: 13px; background: #16130c; }
+td { font-size: 14px; }
+.pos { color: var(--green); }
+.neg { color: var(--red); }
+.achv { list-style: none; padding: 0; }
+.achv li {
+  background: var(--panel);
+  border: 1px solid #4a443a;
+  border-radius: 8px;
+  padding: 12px 18px;
+  margin-bottom: 10px;
+  color: var(--dim);
+}
+.achv li.on { border-color: var(--gold); color: var(--text); }
+.achv li.on b { color: var(--green); margin-left: 12px; }
+.achv li i { color: var(--dim); margin-left: 12px; }
+tr.on td:first-child { color: var(--gold-hi); }
+footer {
+  color: var(--dim);
+  font-size: 12px;
+  text-align: center;
+  padding: 20px 0 30px;
+}

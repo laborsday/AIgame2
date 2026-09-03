@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>最近战绩（100 局）</h2>
+<table>
+  <tr><th>时间</th><th>结局</th><th>层数</th><th>得分</th><th>死亡白细胞</th><th>残留%</th><th>左半钥匙</th><th>档案室左半</th></tr>
+  {% for r in rows %}
+  <tr>
+    <td>{{ r.created_at[:19] }}</td>
+    <td>{{ r.ending }}</td>
+    <td>{{ r.layers }}</td>
+    <td>{{ r.score }}</td>
+    <td>{{ r.wbc_deaths }}</td>
+    <td>{{ '%.2f' % r.residual if r.residual is not none else '—' }}</td>
+    <td>{{ '有' if r.key_left_found else '—' }}</td>
+    <td>{{ '读' if r.archive_left_read else '—' }}</td>
+  </tr>
+  {% else %}
+  <tr><td colspan="8">尚无战绩——去玩一局吧。</td></tr>
+  {% endfor %}
+</table>
+{% endblock %}

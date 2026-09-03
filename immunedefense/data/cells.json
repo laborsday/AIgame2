@@ -1,0 +1,6 @@
+{
+  "neutrophil": {"hp": 40, "atk": 6, "atk_speed": 1.2, "speed": 160, "radius": 12, "sprite": "wbc_neutrophil_48.png"},
+  "macrophage": {"hp": 90, "atk": 4, "atk_speed": 0.6, "speed": 90, "radius": 15, "dmg_mult": 0.5, "sprite": "wbc_macrophage_48.png"},
+  "t_cell": {"hp": 30, "atk": 8, "atk_speed": 0.8, "speed": 120, "radius": 11, "range": 220, "sprite": "wbc_tcell_48.png"},
+  "nk": {"hp": 40, "atk": 16, "atk_speed": 0.55, "speed": 130, "radius": 12, "burst_cd": 6.0, "burst_radius": 80, "sprite": "wbc_nk_48.png"}
+}

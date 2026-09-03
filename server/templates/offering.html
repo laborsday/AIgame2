@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>祭点流水（最近 200 笔）</h2>
+<table>
+  <tr><th>时间</th><th>变动</th><th>原因</th><th>之后余额</th></tr>
+  {% for r in rows %}
+  <tr>
+    <td>{{ r.created_at[:19] }}</td>
+    <td class="{{ 'pos' if r.delta > 0 else 'neg' }}">{{ '%+d' % r.delta }}</td>
+    <td>{{ r.reason }}</td>
+    <td>{{ r.offering_after }}</td>
+  </tr>
+  {% else %}
+  <tr><td colspan="4">尚无流水。</td></tr>
+  {% endfor %}
+</table>
+{% endblock %}

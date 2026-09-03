@@ -1,0 +1,58 @@
+{
+  "entries": [
+    {"key": "atk", "type": "memory", "tier": 0, "group": "general", "name": "攻伐",
+     "effect": "下局全体白细胞攻击 +2", "cost": 15, "unlock": "default",
+     "requires": [], "unlock_hint": ""},
+    {"key": "cards", "type": "memory", "tier": 0, "group": "general", "name": "卡池",
+     "effect": "下局开局 +2 张随机细胞卡", "cost": 10, "unlock": "default",
+     "requires": [], "unlock_hint": ""},
+    {"key": "radius", "type": "memory", "tier": 0, "group": "general", "name": "视野",
+     "effect": "下局引导范围 +40", "cost": 10, "unlock": "default",
+     "requires": [], "unlock_hint": ""},
+    {"key": "speed", "type": "memory", "tier": 0, "group": "general", "name": "疾行",
+     "effect": "下局移速 +20", "cost": 10, "unlock": "default",
+     "requires": [], "unlock_hint": ""},
+    {"key": "cap", "type": "memory", "tier": 0, "group": "general", "name": "军团",
+     "effect": "下局白细胞上限 +1", "cost": 20, "unlock": "default",
+     "requires": [], "unlock_hint": ""},
+
+    {"key": "mem_neut_1", "type": "memory", "tier": 1, "group": "neutrophil",
+     "name": "最后的冲锋", "effect": "开局自带 1 只中性粒细胞",
+     "cost": 25, "unlock": "default", "requires": [], "unlock_hint": ""},
+    {"key": "mem_neut_2", "type": "memory", "tier": 2, "group": "neutrophil",
+     "name": "最后的冲锋", "effect": "含Ⅰ档：开局自带 2 只中性粒细胞",
+     "cost": 35, "unlock": {"milestone": "boss_beaten_1"},
+     "requires": ["mem_neut_1"], "unlock_hint": "首次击败 BOSS 后解锁"},
+
+    {"key": "mem_mac_1", "type": "memory", "tier": 1, "group": "macrophage",
+     "name": "吞下的苦", "effect": "开局生命上限 +10",
+     "cost": 30, "unlock": "default", "requires": [], "unlock_hint": ""},
+    {"key": "mem_mac_2", "type": "memory", "tier": 2, "group": "macrophage",
+     "name": "吞下的苦", "effect": "含Ⅰ档：上限 +10，并开局护盾 +1 格",
+     "cost": 40, "unlock": {"milestone": "boss_beaten_1"},
+     "requires": ["mem_mac_1"], "unlock_hint": "首次击败 BOSS 后解锁"},
+
+    {"key": "mem_t_1", "type": "memory", "tier": 1, "group": "t_cell",
+     "name": "想起的事", "effect": "开局 +1 张 T 细胞卡",
+     "cost": 15, "unlock": "default", "requires": [], "unlock_hint": ""},
+    {"key": "mem_t_2", "type": "memory", "tier": 2, "group": "t_cell",
+     "name": "想起的事", "effect": "含Ⅰ档：+1 张 T 卡，且标记时间 +3s",
+     "cost": 30, "unlock": {"milestone": "boss_beaten_1"},
+     "requires": ["mem_t_1"], "unlock_hint": "首次击败 BOSS 后解锁"},
+
+    {"key": "mem_nk_1", "type": "memory", "tier": 1, "group": "nk",
+     "name": "决断的瞬间", "effect": "NK 爆发 CD −2s",
+     "cost": 25, "unlock": "default", "requires": [], "unlock_hint": ""},
+    {"key": "mem_nk_2", "type": "memory", "tier": 2, "group": "nk",
+     "name": "决断的瞬间", "effect": "NK 爆发 CD −4s",
+     "cost": 35, "unlock": {"milestone": "boss_beaten_1"},
+     "requires": ["mem_nk_1"], "unlock_hint": "首次击败 BOSS 后解锁"}
+  ],
+  "physical": {
+    "key_left": {
+      "key": "key_left", "type": "physical", "name": "左半钥匙",
+      "desc": "一把有缺口的银钥匙，齿的一侧被齐齐切掉。",
+      "cost": 200, "limit": 1
+    }
+  }
+}

@@ -1,0 +1,42 @@
+# Python build caches
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# Temp / scratch artifacts
+_*.png
+_*.py
+
+# 一次性预览 / 调试脚本（本地保留，不入库）
+immunedefense/preview_*.py
+immunedefense/preview_*.png
+immunedefense/debug_*.py
+immunedefense/smoke_v4.py
+
+# 本地运行期产物（不入库：随本机/本局变化）
+# 玩家存档（祭点/下一局 buff）
+immunedefense/data/meta.json
+immunedefense/data/meta.json.migrated
+# v5 本地库（受限环境回退位）
+immunedefense/data/userdata/
+# 本机设置（跳过开场开关）
+immunedefense/data/config.json
+
+# 无关目录（保留本机但不入库）
+知识考试/
+
+# 本地工具依赖（pip --target 安装，不入库）
+.tools/
+
+# PyInstaller 构建产物（打包机本地）
+build/
+dist/
+packaging/*.zip
+*.spec.bak
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

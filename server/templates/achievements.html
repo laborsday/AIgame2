@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>成就（数据源：data/achievements.json · 本地库 achievements 表）</h2>
+<table>
+  <tr><th>成就</th><th>条件</th><th>效果</th><th>状态</th></tr>
+  {% for a in defs %}
+  <tr class="{{ 'on' if a.unlocked else '' }}">
+    <td>{{ a.name }}</td>
+    <td>{{ a.desc }}</td>
+    <td>{{ a.effect }}</td>
+    <td>{{ '✓ 已解锁' if a.unlocked else '未解锁' }}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}

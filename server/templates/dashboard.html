@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="cards">
+  <div class="card"><span class="num">{{ stats.total_runs }}</span><span class="lbl">总对局</span></div>
+  <div class="card"><span class="num">{{ stats.win_runs }}</span><span class="lbl">通关次数</span></div>
+  <div class="card"><span class="num">{{ stats.today_runs }}</span><span class="lbl">今日对局</span></div>
+  <div class="card"><span class="num">{{ stats.offering_total }}</span><span class="lbl">祭点累计</span></div>
+</section>
+
+<section>
+  <h2>结局分布</h2>
+  <table>
+    <tr><th>结局</th><th>次数</th></tr>
+    {% for k in ('NE', 'TE', 'TE2', 'died') %}
+    <tr><td>{{ k }}</td><td>{{ stats.ending_dist.get(k, 0) }}</td></tr>
+    {% endfor %}
+  </table>
+</section>
+
+<section>
+  <h2>成就</h2>
+  <ul class="achv">
+    {% for a in defs %}
+    <li class="{{ 'on' if a.unlocked else '' }}">
+      {{ a.name }} — {{ a.desc }}
+      {% if a.unlocked %}<b>✓ 已解锁</b>{% else %}<i>未解锁（{{ a.unlock_hint }}）</i>{% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endblock %}
