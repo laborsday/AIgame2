@@ -209,8 +209,8 @@ class Gameplay(Scene):
         self._reliquary_used = False
         self.achievement_defs = None                          # 成就表惰性加载
         # 档案室（v3 §4.1 + v4 §5.3）：66% 判定宿主房；门状态机 none/live/visited/opened
-        # [演示临时] 档案室必现：固定在第 2 间（教学房后第一间战斗房）；演示后改回随机 66% (ARCHIVE_HOST_CANDIDATES=(3,4))
-        self._archive_host = 1
+        self._archive_host = (self.rng.choice(self.ARCHIVE_HOST_CANDIDATES)
+                              if self.rng.random() < self.ARCHIVE_PROB else None)
         self._archive_used = False
         self._archive_state = 'live' if self._archive_host is not None else 'none'
         self._archive_enter_side = 'right'   # 本次进档案室的目标半区（'right' 免费 / 'left' 钥匙）
@@ -1114,7 +1114,7 @@ class Gameplay(Scene):
         self._open_exit()
 
     def _can_open_shop(self):
-        if not self.shop_here:   # [演示临时] 不清房也能开商店（演示后改回 room_cleared and shop_here）
+        if not (self.room_cleared and self.shop_here):
             return False
         x, y = self.shop_spot
         return (self.player.x - x) ** 2 + (self.player.y - y) ** 2 < 80 ** 2
@@ -1606,7 +1606,7 @@ class Gameplay(Scene):
         # 距离 60：与 _try_open_archive_left 一致——墙带钳制（WALL_T+8）后玩家最远
         # 到 x=1200，而侧门在 x=1246（W-34），45 判定永远差 1px（回归：6186f81 墙加厚）
         if (not self.archive.in_archive and self._archive_state == 'live'
-                and self.room.index == self._archive_host
+                and self.room.index == self._archive_host and self.room_cleared
                 and self._near_xy(*self._archive_portal_center(), 60)):
             self._archive_enter_side = 'right'
             self._leave_room(2)
@@ -1643,7 +1643,7 @@ class Gameplay(Scene):
         self.fireflies = self._spawn_fireflies()
         self.capture_target = None
         self.place_firefly_mode = False
-        self.exit_open = True    # [演示临时] 出口常开：不清房也能前进（演示后改回 False）
+        self.exit_open = False
         self.exit_kind = 'door'
         self.room_cleared = False
         self.exit_side = 'down'    # 前进方向：down=往下层 / right=同层平级（v3 §6）
@@ -1676,8 +1676,8 @@ class Gameplay(Scene):
         self.player.on_hit_cb = self.equipment.on_armor_hit
         self.player.on_life_guard = self._reliquary_guard
         self._reliquary_used = False
-        # [演示临时] 档案室必现：固定在第 2 间（教学房后第一间战斗房）；演示后改回随机 66% (ARCHIVE_HOST_CANDIDATES=(3,4))
-        self._archive_host = 1
+        self._archive_host = (self.rng.choice(self.ARCHIVE_HOST_CANDIDATES)
+                              if self.rng.random() < self.ARCHIVE_PROB else None)
         self._archive_used = False
         self._archive_state = 'live' if self._archive_host is not None else 'none'
         self._archive_enter_side = 'right'

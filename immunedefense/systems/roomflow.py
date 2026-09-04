@@ -154,7 +154,7 @@ class RoomFlow:
             gp.shop_here = gp.room.roll_shop()   # 本房是否生成商店台（BOSS 前房必刷）
             gp.shop_spot = gp._shop_spot_pos()
             gp.fireflies = gp._spawn_fireflies()   # v6：每房 50% 刷萤火虫（仅 dim）
-            gp.exit_open = gp.current_kind != 'boss'   # [演示临时] 出口常开（BOSS 房除外，防误触通关；演示后改回 False）
+            gp.exit_open = False
             gp.exit_kind = 'door'
             gp.room_cleared = False
             self.apply_room_state()

@@ -67,7 +67,7 @@ class WorldRenderer:
         # v4 §5.3 档案室门：live（清房开放）/ visited（上锁）/ opened（敞开）
         if not gp.archive.in_archive and gp._archive_host == gp.room.index:
             st = gp._archive_state
-            if st == 'live':   # [演示临时] 不清房也显示侧门（演示后改回 and gp.room_cleared）
+            if st == 'live' and gp.room_cleared:
                 gp.archive.draw_portal(world, 'free')
             elif st == 'visited':
                 gp.archive.draw_portal(world, 'locked')
@@ -104,10 +104,10 @@ class WorldRenderer:
         if not gp.shop_here:
             return
         x, y = gp.shop_spot
-        img = gfx.load('shop_stand_open.png',   # [演示临时] 不清房也亮台子（演示后改回按 room_cleared 切换）
+        img = gfx.load('shop_stand_open.png' if gp.room_cleared else 'shop_stand_closed.png',
                        (96, 96), subdir='ui/icons')
         world.blit(img, img.get_rect(center=(x, y - 42)))
-        if True:   # [演示临时] 靠近就提示（演示后改回 gp.room_cleared）
+        if gp.room_cleared:
             near = (gp.player.x - x) ** 2 + (gp.player.y - y) ** 2 < 80 ** 2
             label = '按 E 打开商店' if near else '商店'
             t = gfx.font(14, True).render(label, True, (0xC9, 0xA2, 0x27))
